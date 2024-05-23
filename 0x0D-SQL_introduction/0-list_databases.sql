@@ -1,4 +1,3 @@
 -- List all databases
-
-SHOW DATABASES;
+SHOW SCHEMAS;
 
