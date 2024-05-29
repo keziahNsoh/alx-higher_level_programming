@@ -1,1 +1,2 @@
 python3 -m doctest -v 0-add_integer.py
+python3 -m doctest -v 0-add_integer.py
