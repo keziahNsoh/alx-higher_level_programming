@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 def add_integer(a, b=98):
     """
     Adds two integers.
@@ -9,7 +7,7 @@ def add_integer(a, b=98):
         b (int or float, optional): The second integer. Defaults to 98.
 
     Raises:
-        TypeError: If a or b is not an integer or float.
+        TypeError: If a is not an integer or b is not an integer.
 
     Returns:
         int: The addition of a and b.
@@ -27,7 +25,3 @@ def add_integer(a, b=98):
 
     # Return the addition of a and b
     return a + b
-
-
-if __name__ == "__main__":
-    print(add_integer(5, 3))
