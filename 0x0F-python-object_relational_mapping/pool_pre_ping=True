@@ -1,0 +1,32 @@
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# Replace with your actual database connection parameters
+username = 'root'
+password = 'root'
+database = 'hbtn_0e_100_usa'
+
+# Create engine with pool_pre_ping=True to handle reconnections
+engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}', pool_pre_ping=True)
+
+# Example usage: define a basic ORM model and query
+Base = declarative_base()
+
+class State(Base):
+    __tablename__ = 'states'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128))
+
+# Create a sessionmaker bound to the engine
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Example query
+california_state = session.query(State).filter_by(name='California').first()
+if california_state:
+    print(f"Found state: {california_state.name}")
+
+# Close the session
+session.close()
+
