@@ -32,6 +32,9 @@ if __name__ == "__main__":
                 ORDER BY id ASC
                 """
 
+        # Print the constructed query for debugging
+        print("Executing query:", query % state_name)
+
         # Execute the SQL command with the user-provided state_name
         cursor.execute(query, (state_name,))
 
