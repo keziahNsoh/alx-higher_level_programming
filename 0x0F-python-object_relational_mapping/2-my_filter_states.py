@@ -1,40 +1,54 @@
 #!/usr/bin/python3
-
 """
-Script that takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument Arizona.
+Script that takes in an argument and displays all values in the states table
+of hbtn_0e_0_usa where name matches the argument.
 """
-
-#!/usr/bin/python3
-
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
+    if len(sys.argv) != 5:
+        print("Usage: ./2-my_filter_states.py <mysql_username> <mysql_password> <database_name> <state_name>")
+        sys.exit(1)
+
     username = sys.argv[1]
     password = sys.argv[2]
-    db_name = sys.argv[3]
+    database = sys.argv[3]
     state_name = sys.argv[4]
 
-    # Connect to MySQL
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=db_name)
-
-    # Create a cursor object using cursor() method
-    cursor = db.cursor()
-
-    # Prepare SQL query
-    sql = "SELECT * FROM states WHERE name = %s ORDER BY id LIMIT 1"
     try:
-        # Execute the SQL command
-        cursor.execute(sql, (state_name,))
-        # Fetch the first row
-        row = cursor.fetchone()
-        if row:
-            print(row)
-        else:
-            print("No matching state found")
-    except Exception as e:
-        print("Error:", e)
+        # Connect to MySQL database
+        db = MySQLdb.connect(host='localhost', port=3306,
+                             user=username, passwd=password, db=database)
 
-    # Disconnect from server
-    db.close()
+        # Create a cursor object using cursor() method
+        cursor = db.cursor()
+
+        # Prepare SQL query to retrieve states matching the provided name
+        query = """
+                SELECT id, name
+                FROM states
+                WHERE name = %s
+                ORDER BY id ASC
+                """
+
+        # Execute the SQL command with the user-provided state_name
+        cursor.execute(query, (state_name,))
+
+        # Fetch all the rows in a list of tuples
+        results = cursor.fetchall()
+
+        # Print each row (id, name)
+        for row in results:
+            print(row)
+
+    except MySQLdb.Error as e:
+        print("MySQL Error:", e)
+
+    finally:
+        # Close cursor and database connection
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
