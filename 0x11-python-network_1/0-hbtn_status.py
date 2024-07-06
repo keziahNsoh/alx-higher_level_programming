@@ -18,4 +18,6 @@ def main():
      print("Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 content: {}".format(response_type, response_content, utf8_content))
 
 
-main()
+
+if __name__ == "__main__":
+    main()
