@@ -10,12 +10,12 @@ import urllib.request
 import sys
 
 def main():
-   try:
-      request_url = sys.argv[1]
-      with urllib.request.urlopen(request_url) as result:
-         print(result.read())
-   except urllib.error.HTTPError as error:
-      print("Error code: {}".format(error.code))
+    try:
+         request_url = sys.argv[1]
+         with urllib.request.urlopen(request_url) as result:
+             print(result.read())
+    except urllib.error.HTTPError as error:
+         print("Error code: {}".format(error.code))
 
 
 
@@ -24,5 +24,5 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

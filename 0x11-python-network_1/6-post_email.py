@@ -10,15 +10,15 @@ import sys
 import requests
 
 def main():
-   url = sys.argv[1]
-   email = sys.argv[2]
-   result = requests.post(url, data={"email": email})
-   print(result.text)
+    url = sys.argv[1]
+    email = sys.argv[2]
+    result = requests.post(url, data={"email": email})
+    print(result.text)
 
 
 
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

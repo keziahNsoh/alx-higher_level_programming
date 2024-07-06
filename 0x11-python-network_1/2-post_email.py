@@ -10,11 +10,11 @@ import urllib.request
 import sys
 
 def main():
-   request_url = sys.argv[1]
-   email = sys.argv[2]
-   data = urllib.parse.urlencode({"email": email})
-   with urllib.request.urlopen(request_url, data.encode('ascii')) as result:
-      print(result.read().decode('utf-8'))
+    request_url = sys.argv[1]
+    email = sys.argv[2]
+    data = urllib.parse.urlencode({"email": email})
+    with urllib.request.urlopen(request_url, data.encode('ascii')) as result:
+        print(result.read().decode('utf-8'))
 
 
 
@@ -22,5 +22,5 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

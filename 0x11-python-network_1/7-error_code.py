@@ -10,13 +10,13 @@ import sys
 import requests
 
 def main():
-   try:
-      request_url = sys.argv[1]
-      result = requests.get(request_url)
-      result.raise_for_status()
-      print(result.text)
-   except requests.exceptions.HTTPError as error:
-      print("Error code: {}".format(error.response.status_code))
+    try:
+        request_url = sys.argv[1]
+        result = requests.get(request_url)
+        result.raise_for_status()
+        print(result.text)
+    except requests.exceptions.HTTPError as error:
+        print("Error code: {}".format(error.response.status_code))
 
 
 
@@ -25,5 +25,5 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

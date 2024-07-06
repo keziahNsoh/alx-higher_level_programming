@@ -10,23 +10,23 @@ import sys
 import requests
 
 def main():
-   q = ""
-   if sys.argv[1]:
-      q = sys.argv[1]
-   try:
-      result = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
-      data = result.json()
-      print(data)
-      if not data:
-         print("No result")
-      else:
-         print("[{}] {}".format(data.get("id"), data.get('name')))
-   except requests.exceptions.JSONDecodeError as error:
-      print("Not a valid JSON")
+    q = ""
+    if sys.argv[1]:
+        q = sys.argv[1]
+    try:
+        result = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
+        data = result.json()
+        print(data)
+        if not data:
+            print("No result")
+        else:
+            print("[{}] {}".format(data.get("id"), data.get('name')))
+    except requests.exceptions.JSONDecodeError as error:
+        print("Not a valid JSON")
 
 
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

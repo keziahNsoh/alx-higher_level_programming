@@ -10,10 +10,10 @@ import urllib.request
 import sys
 
 def main():
-   request_url = sys.argv[1]
-   with urllib.request.urlopen(request_url) as result:
-     header = result.getheader('X-Request-Id')
-     print(header)
+    request_url = sys.argv[1]
+    with urllib.request.urlopen(request_url) as result:
+        header = result.getheader('X-Request-Id')
+        print(header)
 
 
 
@@ -22,5 +22,5 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+    main()
 

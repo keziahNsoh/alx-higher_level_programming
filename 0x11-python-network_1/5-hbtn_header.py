@@ -10,9 +10,9 @@ import sys
 import requests
 
 def main():
-   url = sys.argv[1]
-   result = requests.get(url)
-   print(result.headers['X-Request-Id'])
+    url = sys.argv[1]
+    result = requests.get(url)
+    print(result.headers['X-Request-Id'])
 
 
 
@@ -20,5 +20,5 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+    main()
 
