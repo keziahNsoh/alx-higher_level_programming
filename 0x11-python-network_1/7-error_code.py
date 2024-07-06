@@ -16,7 +16,7 @@ def main():
       result.raise_for_status()
       print(result.text)
    except requests.exceptions.HTTPError as error:
-      print(error.response.status_code)
+      print("Error code: {}".format(error.response.status_code))
 
 
 
