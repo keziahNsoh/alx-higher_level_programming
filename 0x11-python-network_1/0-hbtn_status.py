@@ -9,6 +9,9 @@ import urllib.request
 
 
 def main():
+    """
+    This is a main file that is used to run the code
+    """
     with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as result:
         response_body = result.read()
         response_type = type(response_body)
