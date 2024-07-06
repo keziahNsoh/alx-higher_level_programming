@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 What's my status
 Description: This module fetches https://alx-intranet.hbtn.io/status
