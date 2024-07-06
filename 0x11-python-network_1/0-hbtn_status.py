@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-
-#This imports the urllib request and fetches https://alx-intranet.hbtn.io/status
+"""
+What's my status
+Description: This module fetches https://alx-intranet.hbtn.io/status
+"""
 
 import urllib.request
 
