@@ -1,13 +1,13 @@
 #!/usr/bin/node
 
 const fs = require('fs');
-const path = process.argv[2]; // Get the file path from the command-line arguments
+const path = process.argv[2];
 
 fs.readFile(path, 'utf8', (err, data) => {
   if (err) {
-    console.error(err); // Print the error object if an error occurs
+    console.error(err);
   } else {
-    console.log(data); // Print the file content if no error occurs
+    console.log(data);
   }
 });
 
