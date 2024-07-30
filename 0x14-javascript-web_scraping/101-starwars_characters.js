@@ -30,9 +30,13 @@ function getCharacterNames (url) {
 
     const characters = movieData.characters;
 
-    // Fetch and print details for each character in order
-    characters.forEach(characterUrl => {
-      request(characterUrl, (charError, charResponse, charBody) => {
+    // Function to fetch character data sequentially
+    const fetchSequential = (urls, index = 0) => {
+      if (index >= urls.length) {
+        return;
+      }
+
+      request(urls[index], (charError, charResponse, charBody) => {
         if (charError) {
           console.error('Error fetching character details:', charError);
           process.exit(1);
@@ -47,8 +51,13 @@ function getCharacterNames (url) {
         }
 
         console.log(characterData.name);
+        // Fetch the next character
+        fetchSequential(urls, index + 1);
       });
-    });
+    };
+
+    // Start fetching characters sequentially
+    fetchSequential(characters);
   });
 }
 
