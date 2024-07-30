@@ -21,7 +21,7 @@ request(url, (error, response, body) => {
   }
 
   const characterUrls = data.characters;
-  
+
   if (!characterUrls || characterUrls.length === 0) {
     console.log('No characters found for the given movie ID');
     return;
